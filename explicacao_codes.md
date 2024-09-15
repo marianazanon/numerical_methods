@@ -1,7 +1,3 @@
-Aqui está a explicação detalhada do código, linha por linha, em português-BR, para os arquivos `numerical_methods.py` e `driver.py`. Vou explicar as partes principais do código, suas funções e como elas contribuem para resolver o problema do cálculo da massa do paraquedista.
-
----
-
 ## Arquivo: `numerical_methods.py`
 
 Este arquivo contém a implementação dos três métodos numéricos: **Falsa Posição**, **Bisseção** e **Newton-Raphson**, além de uma função auxiliar para arredondamento.
@@ -191,11 +187,3 @@ else:
 - **Linhas 25-30**: Determina qual método foi o mais eficiente com base no menor número de iterações.
 
 ---
-
-### Resumo:
-
-1. O arquivo `numerical_methods.py` contém a implementação dos três métodos numéricos, cada um encapsulado em uma classe. Todos eles seguem uma estrutura semelhante, com uma função `solve()` que realiza a busca pela raiz.
-2. O arquivo `driver.py` aplica esses métodos ao problema real do cálculo da massa do paraquedista, definindo os parâmetros físicos apropriados e realizando uma comparação entre os métodos em termos de eficiência.
-
-Este projeto não apenas resolve um problema físico real, mas também oferece uma forma de comparar a eficiência de diferentes algoritmos numéricos.
-
