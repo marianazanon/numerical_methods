@@ -22,9 +22,7 @@ O **Método de Newton-Raphson** é um método iterativo que utiliza a derivada d
 
 Neste projeto, utilizamos os três métodos para resolver o problema do cálculo da massa de um paraquedista em queda livre, dado o tempo de queda e a velocidade terminal desejada. O problema é modelado pela seguinte equação física:
 
-\[
-v(t) = \frac{mg}{c} \left(1 - e^{-\frac{c}{m}t}\right)
-\]
+![Equação do Paraquedista](./img/eq1.png)
 
 Onde:
 - \( v(t) \) é a velocidade em um dado tempo \( t \),
@@ -35,9 +33,7 @@ Onde:
 
 A equação foi rearranjada para que a função \( f(m) \) tenha a forma:
 
-\[
-f(m) = \frac{mg}{c} \left(1 - e^{-\frac{c}{m}t}\right) - v(t) = 0
-\]
+![Equação do rearranjada](./img/eq2.png)
 
 O objetivo é encontrar a raiz de \( f(m) \), que corresponde à massa \( m \) que satisfaz a equação.
 
