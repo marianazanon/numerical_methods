@@ -1,3 +1,8 @@
+import math
+
+def round_to_two_decimals(value):
+    return round(round(value), 2)
+
 class FalsePositionMethod:
     def __init__(self, f, lower_bound, upper_bound, max_iterations, epsilon=1e-6):
         self.f = f
