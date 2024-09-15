@@ -1,3 +1,6 @@
+## Projeto de Métodos Numéricos
+# Alunos: Caio Guilherme e Mariana Zanon
+
 ## Métodos Numéricos Utilizados
 
 ### Método da Falsa Posição
