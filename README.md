@@ -14,7 +14,7 @@ O **Método da Bisseção** é um dos métodos numéricos mais simples para enco
 
 O **Método de Newton-Raphson** é um método iterativo que utiliza a derivada da função para estimar a raiz. Ele converge muito mais rapidamente do que os métodos anteriores quando se tem uma boa estimativa inicial e uma função bem comportada, mas pode falhar se a derivada da função for zero em algum ponto ou se o palpite inicial for muito distante da raiz verdadeira.
 
-## Aplicação no Mundo Real: Cálculo da Massa de um Paraquedista
+## Aplicação no Mundo Real: Cálculo da Massa de um Paraquedista em queda livre
 
 Neste projeto, utilizamos os três métodos para resolver o problema do cálculo da massa de um paraquedista em queda livre, dado o tempo de queda e a velocidade terminal desejada. O problema é modelado pela seguinte equação física:
 
