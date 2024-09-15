@@ -83,3 +83,30 @@ class BisectionMethod:
 
     def _check_convergence(self, f_midpoint):
         return abs(f_midpoint) < self.epsilon
+
+class NewtonRaphsonMethod:
+    def __init__(self, f, df, initial_guess, epsilon=1e-6, max_iterations=50):
+        self.f = f
+        self.df = df
+        self.initial_guess = initial_guess
+        self.epsilon = epsilon
+        self.max_iterations = max_iterations
+
+    def solve(self):
+        current_approximation = self.initial_guess
+
+        for iteration in range(self.max_iterations):
+            f_current_approx = self.f(current_approximation)
+            print(f"Iteração: {iteration}, xi = {current_approximation:.6f}, f(xi) = {f_current_approx:.6f}")
+
+            if abs(f_current_approx) < self.epsilon:
+                print(f"Solução encontrada depois de {iteration} iterações")
+                return round_to_two_decimals(current_approximation)
+
+            df_current_approx = self.df(current_approximation)
+            if df_current_approx == 0:
+                raise ValueError("Derivada igual a zero. Nenhuma solução encontrada")
+
+            current_approximation = current_approximation - f_current_approx / df_current_approx
+
+        raise RuntimeError("Máximo de iterações atingido. Nenhuma convergência")
