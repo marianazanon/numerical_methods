@@ -53,13 +53,3 @@ O código driver executa os três métodos numéricos para calcular a massa do p
 ### Método Comparativo
 
 Além de executar cada método individualmente, o driver inclui uma função de comparação que avalia a eficiência dos métodos com base no número de iterações necessárias para convergir para a solução. O método mais eficiente é aquele que requer o menor número de iterações, embora todos os métodos sejam projetados para retornar a mesma solução final (com pequenas variações numéricas).
-
-Exemplo de saída do código comparativo:
-
-```text
-Método da Falsa Posição: Raiz = 82.37, Iterações = 23
-Método da Bisseção: Raiz = 82.37, Iterações = 27
-Método de Newton-Raphson: Raiz = 82.37, Iterações = 5
-
-O método mais eficiente é Newton-Raphson com 5 iterações.
-```
