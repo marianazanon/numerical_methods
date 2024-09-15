@@ -22,7 +22,7 @@ Neste projeto, utilizamos os três métodos para resolver o problema do cálculo
 
 Onde:
 - \(v(t)\) é a velocidade em um dado tempo \(t\),
-- \(m\) é a massa do paraquedista (variável desconhecida que estamos buscando),
+- \(m\) é a massa do paraquedista em kg (variável desconhecida que estamos buscando),
 - \(g\) = 9.81 (m/s) é a aceleração gravitacional,
 - \(c\) é o coeficiente de arrasto (supondo um valor constante),
 - \(t\) é o tempo de queda.
