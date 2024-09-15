@@ -1,31 +1,57 @@
 from numerical_methods import FalsePositionMethod, BisectionMethod, NewtonRaphsonMethod
 import math
 
-g = 9.81
-c = 12.5
-v_target = 45
-t = 10
+# Constantes
+g = 9.81  # constante gravitacional (m/s^2)
+c = 12.5  # coeficiente de arrasto (kg/s)
+v_alvo = 45  # velocidade alvo (m/s)
+t = 10  # tempo (s)
 
 def f(m):
-    return (m * g / c) * (1 - math.exp(-c * t / m)) - v_target
+    return (m * g / c) * (1 - math.exp(-c * t / m)) - v_alvo
 
 def df(m):
     return g / c * (1 - math.exp(-c * t / m)) + (g * t * math.exp(-c * t / m)) / m
 
+# Função comparativa
+def comparar_metodos():
+    # Definir os limites para a massa
+    limite_inferior = 50  # limite inferior para a massa (kg)
+    limite_superior = 200  # limite superior para a massa (kg)
+    max_iteracoes = 50
+    epsilon = 1e-6
+    palpite_inicial = 100  # palpite inicial para Newton-Raphson
+
+    # Método da Falsa Posição
+    metodo_falsa_posicao = FalsePositionMethod(f, limite_inferior, limite_superior, max_iteracoes, epsilon)
+    raiz_fp, iteracoes_fp = metodo_falsa_posicao.solve()
+    print(f"Método da Falsa Posição: Raiz = {raiz_fp:.2f}, Iterações = {iteracoes_fp}")
+
+    # Método da Bisseção
+    metodo_bissecao = BisectionMethod(f, limite_inferior, limite_superior, max_iteracoes, epsilon)
+    raiz_bis, iteracoes_bis = metodo_bissecao.solve()
+    print(f"Método da Bisseção: Raiz = {raiz_bis:.2f}, Iterações = {iteracoes_bis}")
+
+    # Método de Newton-Raphson
+    metodo_newton = NewtonRaphsonMethod(f, df, palpite_inicial, epsilon, max_iteracoes)
+    raiz_newton, iteracoes_newton = metodo_newton.solve()
+    print(f"Método de Newton-Raphson: Raiz = {raiz_newton:.2f}, Iterações = {iteracoes_newton}")
+
+    resultados = {
+        "Falsa Posição": {"raiz": raiz_fp, "iterações": iteracoes_fp},
+        "Bisseção": {"raiz": raiz_bis, "iterações": iteracoes_bis},
+        "Newton-Raphson": {"raiz": raiz_newton, "iterações": iteracoes_newton},
+    }
+
+    min_iteracoes = min(iteracoes_fp, iteracoes_bis, iteracoes_newton)
+    if min_iteracoes == iteracoes_fp:
+        melhor_metodo = "Falsa Posição"
+    elif min_iteracoes == iteracoes_bis:
+        melhor_metodo = "Bisseção"
+    else:
+        melhor_metodo = "Newton-Raphson"
+
+    print(f"\nO método mais eficiente é {melhor_metodo} com {min_iteracoes} iterações.")
+
 if __name__ == "__main__":
-    lower_bound = 50
-    upper_bound = 200
-    max_iterations = 50
-
-    fp_method = FalsePositionMethod(f, lower_bound, upper_bound, max_iterations)
-    root_fp = fp_method.solve()
-    print(f"Parachutist mass found using False Position Method: {root_fp:.2f} kg")
-
-    bisection_method = BisectionMethod(f, lower_bound, upper_bound, max_iterations)
-    root_bis = bisection_method.solve()
-    print(f"Parachutist mass found using Bisection Method: {root_bis:.2f} kg")
-
-    initial_guess = 100
-    newton_method = NewtonRaphsonMethod(f, df, initial_guess)
-    root_newton = newton_method.solve()
-    print(f"Parachutist mass found using Newton-Raphson Method: {root_newton:.2f} kg")
+    comparar_metodos()
