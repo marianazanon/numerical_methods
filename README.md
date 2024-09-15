@@ -21,17 +21,17 @@ Neste projeto, utilizamos os três métodos para resolver o problema do cálculo
 ![Equação do Paraquedista](./img/eq1.png)
 
 Onde:
-- \( v(t) \) é a velocidade em um dado tempo \( t \),
-- \( m \) é a massa do paraquedista (variável desconhecida que estamos buscando),
-- \( g = 9.81 \, \text{m/s}^2 \) é a aceleração gravitacional,
-- \( c \) é o coeficiente de arrasto (supondo um valor constante),
-- \( t \) é o tempo de queda.
+- \(v(t)\) é a velocidade em um dado tempo \(t\),
+- \(m\) é a massa do paraquedista (variável desconhecida que estamos buscando),
+- \(g\) = 9.81 (m/s) é a aceleração gravitacional,
+- \(c\) é o coeficiente de arrasto (supondo um valor constante),
+- \(t\) é o tempo de queda.
 
-A equação foi rearranjada para que a função \( f(m) \) tenha a forma:
+A equação foi rearranjada para que a função \(f(m)\) tenha a forma:
 
 ![Equação do rearranjada](./img/eq2.png)
 
-O objetivo é encontrar a raiz de \( f(m) \), que corresponde à massa \( m \) que satisfaz a equação.
+O objetivo é encontrar a raiz de \(f(m)\), que corresponde à massa \(m\) que satisfaz a equação.
 
 ### Método de Arredondamento
 
