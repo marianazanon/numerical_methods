@@ -1,7 +1,3 @@
-# Comparação de Métodos Numéricos para Cálculo de Massa de Paraquedista
-
-Este projeto implementa três métodos numéricos clássicos para encontrar raízes de equações: o **Método da Falsa Posição**, o **Método da Bisseção** e o **Método de Newton-Raphson**. Esses métodos foram aplicados para resolver um problema do mundo real, relacionado ao cálculo da massa de um paraquedista em queda livre, dado um valor alvo de velocidade e outros parâmetros físicos.
-
 ## Métodos Numéricos Utilizados
 
 ### Método da Falsa Posição
