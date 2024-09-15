@@ -21,11 +21,8 @@ class FalsePositionMethod:
             root_approx = (lower_bound * self.f(upper_bound) - upper_bound * self.f(lower_bound)) / (self.f(upper_bound) - self.f(lower_bound))
             f_approx = self.f(root_approx)
 
-            self._print_iteration(iteration, lower_bound, upper_bound, root_approx, self.f(lower_bound), self.f(upper_bound), f_approx)
-
             if self._check_convergence(f_approx):
-                print(f"Valor aproximado de f(x) = 0 é {f_approx:.6f}")
-                return round_to_two_decimals(root_approx)
+                return round_to_two_decimals(root_approx), iteration + 1
 
             if self.f(lower_bound) * f_approx < 0:
                 upper_bound = root_approx
@@ -34,14 +31,7 @@ class FalsePositionMethod:
             else:
                 raise ValueError("False position method failed")
 
-        print(f"Valor aproximado de f(x) = 0 é {f_approx:.6f}")
-        return round_to_two_decimals(root_approx)
-
-    def _print_iteration(self, iteration, lower_bound, upper_bound, root_approx, f_lower_bound, f_upper_bound, f_approx):
-        print(f"Iteração: {iteration}")
-        print(f"a = {lower_bound}, f(a) = {f_lower_bound:.6f}")
-        print(f"b = {upper_bound}, f(b) = {f_upper_bound:.6f}")
-        print(f"xm = {root_approx:.6f}, f(x) = {f_approx:.6f}")
+        return round_to_two_decimals(root_approx), self.max_iterations
 
     def _check_convergence(self, f_approx):
         return abs(f_approx) < self.epsilon
@@ -64,11 +54,8 @@ class BisectionMethod:
             midpoint = (lower_bound + upper_bound) / 2
             f_midpoint = self.f(midpoint)
 
-            self._print_iteration(iteration, lower_bound, upper_bound, midpoint, self.f(lower_bound), self.f(upper_bound), f_midpoint)
-
             if self._check_convergence(f_midpoint):
-                print(f"Valor aproximado de f(x) = 0 é {f_midpoint:.6f}")
-                return round_to_two_decimals(midpoint)
+                return round_to_two_decimals(midpoint), iteration + 1
 
             if self.f(lower_bound) * f_midpoint < 0:
                 upper_bound = midpoint
@@ -77,14 +64,7 @@ class BisectionMethod:
             else:
                 raise ValueError("Bisection method failed")
 
-        print(f"Valor aproximado de f(x) = 0 é {f_midpoint:.6f}")
-        return round_to_two_decimals(midpoint)
-
-    def _print_iteration(self, iteration, lower_bound, upper_bound, midpoint, f_lower_bound, f_upper_bound, f_midpoint):
-        print(f"Iteração: {iteration}")
-        print(f"a = {lower_bound}, f(a) = {f_lower_bound:.6f}")
-        print(f"b = {upper_bound}, f(b) = {f_upper_bound:.6f}")
-        print(f"xm = {midpoint:.6f}, f(x) = {f_midpoint:.6f}")
+        return round_to_two_decimals(midpoint), self.max_iterations
 
     def _check_convergence(self, f_midpoint):
         return abs(f_midpoint) < self.epsilon
@@ -102,11 +82,8 @@ class NewtonRaphsonMethod:
 
         for iteration in range(self.max_iterations):
             f_current_approx = self.f(current_approximation)
-            print(f"Iteração: {iteration}, xi = {current_approximation:.6f}, f(xi) = {f_current_approx:.6f}")
-
             if abs(f_current_approx) < self.epsilon:
-                print(f"Solução encontrada depois de {iteration} iterações")
-                return round_to_two_decimals(current_approximation)
+                return round_to_two_decimals(current_approximation), iteration + 1
 
             df_current_approx = self.df(current_approximation)
             if df_current_approx == 0:
@@ -114,4 +91,4 @@ class NewtonRaphsonMethod:
 
             current_approximation = current_approximation - f_current_approx / df_current_approx
 
-        raise RuntimeError("Máximo de iterações atingido. Nenhuma convergência")
+        return round_to_two_decimals(current_approximation), self.max_iterations
